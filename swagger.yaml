@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Product API
+  version: 1.0.0
+
+paths:
+  /api/products:
+    post:
+      summary: Create product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                image:
+                  type: string
+                sku:
+                  type: string
+                availability:
+                  type: boolean
+      responses:
+        201:
+          description: Product created
+
+    get:
+      summary: Get products
+
+  /api/products/{id}:
+    get:
+      summary: Get product by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+
+    put:
+      summary: Update product
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+
+    delete:
+      summary: Delete product
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
